@@ -1,0 +1,25 @@
+﻿<Window x:Class="DawidNowak3tc.TaskWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Zadanie" Height="300" Width="400"
+        DataContext="{Binding RelativeSource={RelativeSource Self}, Path=Zadanie}"
+    >
+    <StackPanel Margin="10">
+        <TextBlock x:Name="Nazwa">Nazwa zadania:</TextBlock>
+        <TextBox Name="NazwaZadaniaTextBox"
+                 Text="{Binding Nazwa, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Margin="0,0,0,10"/>
+        <TextBlock x:Name="Opis">Opis zadania:</TextBlock>
+        <TextBox Name="OpisZadaniaTextBox"
+                 Text="{Binding Opis, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Margin="0,0,0,10" AcceptsReturn="True" Height="100"/>
+        <CheckBox Name="CzyWykonaneCheckBox"
+                  Content="Wykonane"
+                  IsChecked="{Binding CzyWykonane, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  Margin="0,0,0,10"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Zapisz" Click="ZapiszButton_Click" Width="75" Margin="5" x:Name="Zapisz"/>
+            <Button Content="Anuluj" Click="AnulujButton_Click" Width="75" Margin="5" x:Name="Anuluj"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

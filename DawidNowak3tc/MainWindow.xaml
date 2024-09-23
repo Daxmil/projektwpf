@@ -1,0 +1,46 @@
+﻿<Window x:Class="DawidNowak3tc.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Zarządzanie Zadaniami" Height="450" Width="800">
+    <DockPanel x:Name="MainDockPanel">
+        <Menu DockPanel.Dock="Top" Name="Menu">
+            <MenuItem Header="Plik" x:Name="Plik">
+                <MenuItem Header="Zrób zrzut" Click="Ss_Click" x:Name="Menu1"/>
+                <MenuItem Header="Ustawienia" Click="Ustawienia_Click" x:Name="Menu2"/>
+                <Separator/>
+                <MenuItem Header="Zakończ" Click="Zakonczenie_Click" x:Name="Menu3"/>
+            </MenuItem>
+        </Menu>
+
+        <ToolBar DockPanel.Dock="Top" Name="Tool">
+            <Button Content="Dodaj Zadanie" Click="NoweZadanie_Click" x:Name="Dodaj"/>
+            <Button Content="Reset" Click="Reset_Click" x:Name="Reset"/>
+        </ToolBar>
+
+        <StatusBar DockPanel.Dock="Bottom" Name="StatusBar">
+            <TextBlock Name="StatusText" Text="Gotowy"/>
+        </StatusBar>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <ListView Name="ListaZadan" Grid.Row="0" ItemsSource="{Binding Zadania}" SelectionChanged="ListaZadan_SelectionChanged">
+                <ListView.View>
+                    <GridView >
+                        <GridViewColumn Header="Zadanie" DisplayMemberBinding="{Binding Nazwa}" Width="200" x:Name="Zadanie"/>
+                        <GridViewColumn Header="Opis" DisplayMemberBinding="{Binding Opis}" Width="400" x:Name="Opis"/>
+                        <GridViewColumn Header="Wykonane" DisplayMemberBinding="{Binding EmojiWykonania}" Width="100" x:Name="Wykonane" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <Button Content="Edytuj Zadanie" Click="EdytujZadanie_Click" Margin="5" x:Name="Edytuj"/>
+                <Button Content="Usuń Zadanie" Click="UsunZadanie_Click" Margin="5" x:Name="Usun"/>
+            </StackPanel>
+        </Grid>
+    </DockPanel>
+</Window>

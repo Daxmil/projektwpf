@@ -1,0 +1,11 @@
+﻿<Window x:Class="DawidNowak3tc.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ustawienia" Height="200" Width="400">
+    <StackPanel Margin="10">
+        <Label Content="Ustawienia" FontWeight="Bold" FontSize="16" Margin="0,0,0,10" x:Name="SettingsLabel"/>
+        <RadioButton x:Name="Polski" GroupName="Motyw" Content="Polski" Margin="0,0,0,10"/>
+        <RadioButton x:Name="Angielski" GroupName="Motyw" Content="English" Margin="0,0,0,10"/>
+        <Button Content="Zastosuj" Width="75" HorizontalAlignment="Right" Margin="5" Click="ZastosujButton_Click" x:Name="Zastosuj"/>
+    </StackPanel>
+</Window>
